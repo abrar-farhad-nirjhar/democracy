@@ -1,0 +1,46 @@
+body{
+    background-image: linear-gradient(125deg,#ffd89b,#19547b);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.block-view{
+    margin: auto;
+    height: 600px;
+    width: 400px;
+    background: #eeeeee;
+    border: 1px #19547b;
+    border-radius: 50px;
+
+
+}
+.form-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+    
+
+}
+img{
+    border-radius: 25px;
+
+}
+.form-element{
+    width: 200px;
+    border: 2px solid white;
+    height:25px;
+    border-radius: 20px;
+    padding-left: 10px
+    
+}
+
+#register_btn{
+    border: 1px solid white;
+    height: 40px;
+    width: 80px;
+    border-radius: 20px;
+    color: white;
+    background-image: linear-gradient(125deg,#ffd89b,#19547b);
+}

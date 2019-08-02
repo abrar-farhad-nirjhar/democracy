@@ -1,33 +1,51 @@
+{% load staticfiles %}
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'registration.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <h1>This is the register page</h1>
+    {% comment %} <h1>This is the register page</h1> {% endcomment %}
 
-    <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Enter your username...">
-        <br>
-        <input type="text" name="first_name" placeholder="Enter your first name...">
-        <br>
-        <input type="text" name="last_name" placeholder="Enter your last name...">
-        <br>
-        <input type="email" name="email" placeholder="Enter your email address...">
-        <br>
-        <select name="type">
-            <option value="M">Manager</option>
-            <option value="R">Regular</option>
-        </select>
-        <br>
-        <input type="password" name="password" minlength="8" placeholder="Enter a password...">
-        <br>
-        <button>Submit</button>
-    
-    </form>    
+    <div class="block-view">
+        <div class="form-content">
+            
+            <form action="{% url 'register' %}" method="post">
+                <img src="{% static 'image1.png' %}" alt="image1"  width=350px>
+                {% csrf_token %}
+                <br>
+                <br>
+                <input class="form-element" type="text" name="username" placeholder="Enter your username..." required>
+                <br>
+                <br>
+                <input class="form-element" type="text" name="first_name" placeholder="Enter your first name..." required>
+                <br>
+                <br>
+                <input class="form-element" type="text" name="last_name" placeholder="Enter your last name..." required>
+                <br>
+                <br>
+                <input class="form-element" type="email" name="email" placeholder="Enter your email address..." required>
+                <br>
+                <br>
+                <select class="form-element" name="type">
+                    <option value="M">Manager</option>
+                    <option value="R">Regular</option>
+                </select>
+                <br>
+                <br>
+                <input type="password" class="form-element" name="password" minlength="8" placeholder="Enter a password..." required>
+                <br>
+                <br>
+                <button id="register_btn" >Register</button>
+            
+            </form>
+        </div>
+    </div>    
 </body>
 </html>
