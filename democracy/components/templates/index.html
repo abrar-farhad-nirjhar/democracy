@@ -1,17 +1,39 @@
+{% load staticfiles %}
+
 <html>
 
     
 
-
+    <head>
+        <link rel="stylesheet" href="{% static 'index.css' %}">
+        <title>Democracy</title>
+    
+    </head>
 
     <body>
         
-        <h1>DEMOCRACY</h1>
+        
 
         <br>
         <br>
-
-        <p>Not Registered? <a href="{% url 'register_page' %}">Click here to register.</a></p>
+        <div class="form-content">
+            <div class="box">
+                <form action="{% url 'login_page' %}"  method="POST">
+                    {% csrf_token %} 
+                    <img src="{% static 'image2.png' %}" alt="login_image" width=100px>
+                    <br>
+                    <br>
+                    <input type="text" name="username" class="form-element" placeholder="Enter your username..." required>
+                    <br>
+                    <br>
+                    <input type="password" name="password" class="form-element" placeholder="Enter your password..." required>
+                    <br>
+                    <br>
+                    <button id="login_btn">Login</button>
+                </form>
+                <p>Not Registered? <a href="{% url 'register_page' %}">Click here to register.</a></p>
+            </div>
+        </div>
 
 
 

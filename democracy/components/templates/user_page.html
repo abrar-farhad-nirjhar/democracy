@@ -1,0 +1,22 @@
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% csrf_token %}
+    <h1>THIS IS THE USER PAGE {{user.user.first_name}}</h1>
+    <h1>THIS IS THE USER TYPE {{user.user_type}}</h1>
+
+    <form action="{% url 'logout_page' %}" method="POST">
+
+        <button>Logout</button>
+    
+    </form>
+    
+</body>
+</html>

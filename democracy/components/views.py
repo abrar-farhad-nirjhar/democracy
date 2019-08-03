@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-
+from django.contrib.auth import authenticate, login, logout
 from .models import *
+from django.views.decorators.csrf import csrf_exempt
+
 # Create your views here.
 
 
@@ -16,7 +18,7 @@ def register_page(request):
 def register(request):
     
     try:
-        username = request.POST.get('username')
+        username = request.POST.get('username').lower()
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         email = request.POST.get('email')
@@ -29,10 +31,10 @@ def register(request):
         user.first_name = first_name
         user.last_name = last_name
         user.email = email
-
+        user.set_password(password)
         user.save()
 
-        user.set_password(password)
+        
 
         s_user = SystemUser()
         s_user.user = user
@@ -40,20 +42,34 @@ def register(request):
         s_user.save()
 
 
-        print(s_user.user_type)
-        print(s_user.user_type)
-        print(s_user.user_type)
-        print(s_user.user_type)
-        print(s_user.user_type)
+        
 
 
         
         return render(request,'index.html')
     except:
-        print("THERE IS A USERNAME CONFLICT")
-        print("THERE IS A USERNAME CONFLICT")
-        print("THERE IS A USERNAME CONFLICT")
-        print("THERE IS A USERNAME CONFLICT")
+        
         return render(request, 'register_page.html')
-    
+
+
+
+@csrf_exempt
+def login_page(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(request, username=username, password=password)
+    context = {}
+    if user is not None:
+        login(request,user)
+        context['user'] = SystemUser.objects.get(user=user)
+        
+        return render(request, 'user_page.html', context)
+
+    else:
+        return render(request, 'index.html')
+
+
+def logout_page(request):
+    logout(request)
+    return redirect('index.html')
     

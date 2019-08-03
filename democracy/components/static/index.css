@@ -5,20 +5,29 @@ body{
     display: flex;
     flex-shrink: 1;
     max-height: 100%;
+    flex-direction: column
 }
 
-.block-view{
+
+.box{
+
     margin: auto;
-    height: 600px;
+    background: #eee;
+    height: 300px;
     width: 400px;
-    background: #eeeeee;
-    border: 1px #19547b;
+    border: 1px solid #eee;
     border-radius: 50px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-
-
+    display: flex;
+    flex-direction: column;
+    padding: 10px
+}
+.form-element{
+    width: 200px;
+    border: 2px solid white;
+    height:25px;
+    border-radius: 20px;
+    padding-left: 10px
+    
 }
 .form-content{
     display: flex;
@@ -29,20 +38,8 @@ body{
     flex-shrink: .25
 
 }
-img{
-    border-radius: 25px;
 
-}
-.form-element{
-    width: 200px;
-    border: 2px solid white;
-    height:25px;
-    border-radius: 20px;
-    padding-left: 10px
-    
-}
-
-#register_btn{
+#login_btn{
     border: 1px solid white;
     height: 40px;
     width: 80px;
