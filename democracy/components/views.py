@@ -75,4 +75,28 @@ def login_page(request):
 def logout_page(request):
     logout(request)
     return redirect('index.html')
-    
+
+
+def create_polls(request):
+    context = {}
+    Suser = SystemUser.objects.get(user=request.user)
+    context['user'] = Suser
+    return render(request, 'create_polls.html', context)
+
+
+@csrf_exempt
+def creating_polls(request):
+    title = request.POST.get('title')
+    description = request.POST.get('description')
+    user = SystemUser.objects.get(user=request.user)
+    context = {}
+    context['user'] = user
+    poll = Poll()
+    poll.title = title
+    poll.description = description
+    poll.owner = user
+    poll.save()
+    print(request.POST)
+    print(request.POST)
+    print(request.POST)
+    return render(request, 'create_polls.html', context)

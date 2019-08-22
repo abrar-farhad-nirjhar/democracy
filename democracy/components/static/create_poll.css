@@ -1,0 +1,31 @@
+#title{
+    background: white;
+    border: 1px solid white;
+    height: 25px;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center
+
+
+}
+
+#desc{
+    background: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+
+#btn{
+    color: white;
+    background-image: linear-gradient(125deg,#ffd89b,#19547b);
+    font-size: 15px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+#btn:hover{
+    background-image: linear-gradient(125deg,#19547b,#ffd89b);
+}
