@@ -1,0 +1,40 @@
+{% load staticfiles %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'manager.css' %}">
+</head>
+<body>
+    {% csrf_token %}
+    
+    <div class="head-box">
+
+        <div id="game-changer"><h1>Welcome {{user.user.first_name}}</h1></div>
+
+        <div class="menu">
+            
+
+            <ul class="list-flex">
+                <li class="flex-objects">Create Poll</li>
+                <li class="flex-objects">Add Candidate</li>
+                <li class="flex-objects">Current Polls</li>
+                <li class="flex-objects">Add Voter</li>
+                <li class="flex-objects"><a href="{% url 'logout_page' %}">Logout</a></li>
+                
+            
+            </ul>
+
+            
+        </div>
+    
+    </div>
+
+    
+    
+</body>
+</html>

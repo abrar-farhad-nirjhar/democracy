@@ -62,8 +62,11 @@ def login_page(request):
     if user is not None:
         login(request,user)
         context['user'] = SystemUser.objects.get(user=user)
-        
-        return render(request, 'user_page.html', context)
+        Suser = context['user']
+        if Suser.user_type is 'M':
+            return render(request, 'manager_page.html', context)
+        elif Suser.user_type is 'R':
+            return render(request, 'user_page.html', context)
 
     else:
         return render(request, 'index.html')

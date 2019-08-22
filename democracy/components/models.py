@@ -15,6 +15,7 @@ class Poll(models.Model):
     owner = models.ForeignKey(SystemUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
+    finished = models.CharField(max_length=10, default="false")
 
     def __str__(self):
         return self.title
